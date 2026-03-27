@@ -4,10 +4,6 @@
 
 The system is designed to run on a Raspberry Pi 5 with either a USB camera or a Raspberry Pi Camera Module. The difference between this and RPi-VespAI is that this project is experimenting using two cameras. RPi-VespAI uses a YOLO26 deep learning trained model to identify and differentiate between Asian hornets (Vespa velutina) and European hornets (Vespa crabro) in real-time. 
 
-**Based on the research:** *VespAI: a deep learning-based system for the detection of invasive hornets* published in Communications Biology (2024). DOI: [10.1038/s42003-024-05979-z](https://doi.org/10.1038/s42003-024-05979-z)
-
-**Credits** This project is based on the work done by Jakob Zeise (https://github.com/jakobzeise/vespai/)
-
 
 ## ✨ Features
 
@@ -22,6 +18,7 @@ The system is designed to run on a Raspberry Pi 5 with either a USB camera or a 
 - 🏗️ **Modular Architecture**: Clean, maintainable codebase with separation of concerns
 
 ---
+# Screenshots
 
 ![Web UI Screenshot](docs/images/Web-UI-1.png)
 
@@ -49,30 +46,6 @@ The installation is based on PyTorch and the installation process will install a
 
 ### 2. Installation
 Refer to the Install.md doc under the docs folder
-
-### 2.1 Camera setup (USB and Pi Camera)
-RPi-vespai-C2 supports both USB cameras and Raspberry Pi Camera Module through Picamera2.
-
-Use the scanner to detect your available video devices and generate .env-ready values:
-
-```bash
-cd /home/sysadmin/RPi-vespai-C2
-./scripts/scan_camera_devices.py --format env
-```
-
-Then copy the emitted lines into `.env`:
-
-- `VESPAI_CAMERA1_SOURCE`
-- `VESPAI_CAMERA1_DEVICE`
-- `VESPAI_CAMERA2_ENABLED`
-- `VESPAI_CAMERA2_SOURCE`
-- `VESPAI_CAMERA2_DEVICE`
-
-Quick examples:
-
-- One camera (USB): set `VESPAI_CAMERA1_SOURCE=usb`, keep `VESPAI_CAMERA2_ENABLED=false`
-- One camera (Pi Camera): set `VESPAI_CAMERA1_SOURCE=picamera2`, keep `VESPAI_CAMERA2_ENABLED=false`
-- Two cameras: set `VESPAI_CAMERA2_ENABLED=true` and provide a second source/device
 
 
 ### 3. Access Dashboard
@@ -117,6 +90,7 @@ See the TROUBLESHOOTING doc in the docs folder
 
 
 ## Citation
+**Based on the research:** *VespAI: a deep learning-based system for the detection of invasive hornets* published in Communications Biology (2024). DOI: [10.1038/s42003-024-05979-z](https://doi.org/10.1038/s42003-024-05979-z)
 
 If you use this project in your research or work, please cite the original research:
 
@@ -131,6 +105,9 @@ If you use this project in your research or work, please cite the original resea
   url={https://doi.org/10.1038/s42003-024-05979-z}
 }
 ```
+**Credits** This project is based on the work done by Jakob Zeise (https://github.com/jakobzeise/vespai/)
+
+
 
 ## License
 
@@ -138,17 +115,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **Important:** This implementation is based on research published in Communications Biology. The original research methodology and concepts are attributed to the authors of the cited paper.
 
-## Acknowledgments
-
-- Original VespAI research published in Communications Biology (2024)
-- YOLO by Ultralytics
-- Lox24 SMS API
-- Flask web framework
-- OpenCV computer vision library
-
 ---
 # Special Thanks
 **Prof. Dr. Guido Salvanesch and the Swiss Cyber Institute**
-Thanks for all The AI Courses and inspiration
+Thanks for all the courses, classes, workshops and inspiration!
 
 

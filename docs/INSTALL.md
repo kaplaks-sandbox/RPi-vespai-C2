@@ -43,6 +43,31 @@ pip install -r requirements-venv-py.txt
 ```
 
 
+### 2.1 Camera setup (USB and Pi Camera)
+RPi-vespai-C2 supports both USB cameras and Raspberry Pi Camera Module through Picamera2.
+
+Use the scanner to detect your available video devices and generate .env-ready values:
+
+```bash
+cd < the RPi-vespai-C2 folder>
+./scripts/scan_camera_devices.py --format env
+```
+
+Then copy the emitted lines into `.env`:
+
+- `VESPAI_CAMERA1_SOURCE`
+- `VESPAI_CAMERA1_DEVICE`
+- `VESPAI_CAMERA2_ENABLED`
+- `VESPAI_CAMERA2_SOURCE`
+- `VESPAI_CAMERA2_DEVICE`
+
+Quick examples:
+
+- One camera (USB): set `VESPAI_CAMERA1_SOURCE=usb`, keep `VESPAI_CAMERA2_ENABLED=false`
+- One camera (Pi Camera): set `VESPAI_CAMERA1_SOURCE=picamera2`, keep `VESPAI_CAMERA2_ENABLED=false`
+- Two cameras: set `VESPAI_CAMERA2_ENABLED=true` and provide a second source/device
+
+
 ---
 
 # ⚙️ Configuration
