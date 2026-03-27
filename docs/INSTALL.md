@@ -23,8 +23,8 @@ git lfs install
 
 
 # Clone repository
-git clone https://github.com/kaplaks-sandbox/RPi-vespai-C2.git
-cd RPi-vespai-C2
+git clone https://github.com/kaplaks-sandbox/RPi-vespai2.git
+cd RPi-vespai2
 git lfs pull
 
 
@@ -140,12 +140,12 @@ Type=simple
 User=sysadmin
 Group=sysadmin
 PermissionsStartOnly=true
-WorkingDirectory=/home/sysadmin/RPi-vespai-C2
-ExecStartPre=/usr/bin/mkdir -p /home/sysadmin/RPi-vespai-C2/logs
-ExecStartPre=/usr/bin/touch /home/sysadmin/RPi-vespai-C2/logs/vespai.log
-ExecStartPre=/usr/bin/chown sysadmin:sysadmin /home/sysadmin/RPi-vespai-C2/logs/vespai.log
+WorkingDirectory=/home/sysadmin/RPi-vespai2
+ExecStartPre=/usr/bin/mkdir -p /home/sysadmin/RPi-vespai2/logs
+ExecStartPre=/usr/bin/touch /home/sysadmin/RPi-vespai2/logs/vespai.log
+ExecStartPre=/usr/bin/chown sysadmin:sysadmin /home/sysadmin/RPi-vespai2/logs/vespai.log
 Environment=PYTHONPATH=/usr/lib/python3/dist-packages
-ExecStart=/home/sysadmin/RPi-vespai-C2/start_vespai_web.sh --motion
+ExecStart=/home/sysadmin/RPi-vespai2/start_vespai_web.sh --motion
 Restart=on-failure
 RestartSec=5
 Environment=PYTHONUNBUFFERED=1
@@ -168,4 +168,3 @@ htop
 # Monitor service logs
 sudo journalctl -u vespai-web.service -f
 ```
-
