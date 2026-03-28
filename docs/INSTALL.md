@@ -23,8 +23,8 @@ git lfs install
 
 
 # Clone repository
-git clone https://github.com/kaplaks-sandbox/RPi-vespai2.git
-cd RPi-vespai2
+git clone https://github.com/kaplaks-sandbox/RPi-vespai-C2.git
+cd RPi-vespai-C2
 git lfs pull
 
 
@@ -97,11 +97,11 @@ python vespai.py --web --resolution 720p --motion --save --conf 0.7
 # A) Webcam (live camera)
 python vespai.py --web --resolution 720p --motion --conf 0.7
 
-# B) Dataset (TFRecord file) - aka DEMO Mode
+# B) Dataset - aka DEMO Mode
 python vespai.py --web \
-  --model-path models/L4-yolov26_asianhornet_2026-03-06_19-45-38.onnx \
+  --model-path models/L2_2026-03-25_13-42-18_best.onnx \
   --class-map "1:crabro,2:velutina" \
-  --video "datasets/Detection Asian-hornet.v1i.tfrecord/test/asianhornet.tfrecord" \
+  --video "datasets/test" \
   --resolution 720p --conf 0.7 --print
 
 # High accuracy mode
@@ -165,12 +165,12 @@ Type=simple
 User=sysadmin
 Group=sysadmin
 PermissionsStartOnly=true
-WorkingDirectory=/home/sysadmin/RPi-vespai2
+WorkingDirectory=/home/sysadmin/RPi-vespai-C2
 ExecStartPre=/usr/bin/mkdir -p /home/sysadmin/RPi-vespai2/logs
-ExecStartPre=/usr/bin/touch /home/sysadmin/RPi-vespai2/logs/vespai.log
-ExecStartPre=/usr/bin/chown sysadmin:sysadmin /home/sysadmin/RPi-vespai2/logs/vespai.log
+ExecStartPre=/usr/bin/touch /home/sysadmin/RPi-vespai-C2/logs/vespai.log
+ExecStartPre=/usr/bin/chown sysadmin:sysadmin /home/sysadmin/RPi-vespai-C2/logs/vespai.log
 Environment=PYTHONPATH=/usr/lib/python3/dist-packages
-ExecStart=/home/sysadmin/RPi-vespai2/start_vespai_web.sh --motion
+ExecStart=/home/sysadmin/RPi-vespai-C2/start_vespai_web.sh --motion
 Restart=on-failure
 RestartSec=5
 Environment=PYTHONUNBUFFERED=1
