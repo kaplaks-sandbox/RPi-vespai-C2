@@ -11,6 +11,7 @@ The system is designed to run on a Raspberry Pi 5 with either a USB camera or a 
 - 📊 **Web Dashboard**: Live video feed with statistics and detection analytics
 - 🌍 **Multilingual Support**: Complete English/German/French interface with flag-based switching
 - 📱 **SMS Alerts**: Automated notifications via Lox24 API with intelligent rate limiting - To be Tested
+- 📱 **Push Alerts**: Automated notifications via Pushover API with intelligent rate limiting.
 - 🎯 **Motion Detection**: CPU-efficient motion-based optimization
 - 📈 **Data Analytics**: Comprehensive logging, hourly statistics, and detection history
 - 📱 **Mobile Responsive**: Optimized web interface 
