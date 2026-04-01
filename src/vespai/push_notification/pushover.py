@@ -263,7 +263,8 @@ class PushManager:
                           hornet_type: str, 
                           count: int, 
                           confidence: float,
-                          frame_url: str) -> str:
+                          frame_url: str,
+                          source_name: str = "") -> str:
         """
         Create a formatted hornet detection alert message.
         
@@ -272,6 +273,7 @@ class PushManager:
             count (int): Number of hornets detected
             confidence (float): Detection confidence percentage
             frame_url (str): URL to view the detection frame
+            source_name (str): Camera/source alias for the alert origin
             
         Returns:
             str: Formatted alert message
@@ -290,6 +292,10 @@ class PushManager:
         plural = "s" if count > 1 else ""
         
         message = f"{emoji} {urgency}: {count} {species}{plural} detected at {time_str}"
+
+        source_label = str(source_name or '').strip()
+        if source_label:
+            message += f" | Source: {source_label}"
         
         if confidence > 0:
             message += f" ({confidence:.1f}% confidence)"

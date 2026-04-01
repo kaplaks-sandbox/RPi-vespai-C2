@@ -1188,7 +1188,15 @@ class VespAIApplication:
             count = crabro_count
 
         confidence = self.detection_processor.stats.get('confidence_avg', 0)
-        message = self.push_manager.create_hornet_alert(hornet_type, count, confidence, frame_url)
+        fallback_alias = 'Camera 2' if camera_id == 'camera2' else 'Camera 1'
+        source_name = str(self.camera_aliases.get(camera_id, fallback_alias) or fallback_alias).strip()[:16]
+        message = self.push_manager.create_hornet_alert(
+            hornet_type,
+            count,
+            confidence,
+            frame_url,
+            source_name=source_name,
+        )
 
         attachment = None
         if self.config.get('push_thumbnail') and frame is not None:
